@@ -5,7 +5,6 @@ import connection from '../database/connection'
 class OngController{
 
 	public async store(req:Request,res:Response){
-		console.log(req.body)
 		const id = crypto.randomBytes(6).toString('HEX')
 		const ong: OngInterface = {
 			name: req.body.name,
@@ -15,6 +14,7 @@ class OngController{
 			city: req.body.city,
 			uf: req.body.uf
 		}
+
 		try{
 			await	connection('ongs').insert({
 				id:ong.id,
@@ -27,7 +27,6 @@ class OngController{
 		}
 		catch(e){
 			res.status(422).json({error:e.error})
-			console.log(e)
 		}
 		return res.json({id})
 	}
