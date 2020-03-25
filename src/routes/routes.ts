@@ -1,7 +1,7 @@
 import express from 'express'
 
 import OngsController from '../controllers/OngsController'
-import IncidentsController from '../controllers/IncidentController'
+import IncidentsController from '../controllers/incidentController'
 import PublicController from '../controllers/PublicController'
 const routes = express.Router()
 

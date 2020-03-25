@@ -32,8 +32,12 @@ class IncidentsController{
 
 	public async list(req:Request,res:Response){
 		let incidents:any
+		const ong_id = req.headers.authorization
+
 		try{
-			incidents = await connection('incidents').select('*')
+			incidents = await connection('incidents')
+			.where('ong_id',ong_id)
+			.select('*')
 		}
 		catch(e){
 			res.status(422).json({error:e.error})
