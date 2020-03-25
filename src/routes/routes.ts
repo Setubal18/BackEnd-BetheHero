@@ -2,6 +2,7 @@ import express from 'express'
 
 import OngsController from '../controllers/OngsController'
 import IncidentsController from '../controllers/IncidentController'
+import PublicController from '../controllers/PublicController'
 const routes = express.Router()
 
 //ONGs
@@ -17,5 +18,11 @@ routes.get('/incidents',
 IncidentsController.list)
 routes.delete('/incidents/:id',
 IncidentsController.delete)
+
+
+//public Routes
+routes.get('/public/incidents',
+PublicController.allList)
+
 
 export default routes
