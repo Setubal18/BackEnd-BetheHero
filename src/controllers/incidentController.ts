@@ -11,6 +11,8 @@ class IncidentsController{
 			ong_id:ong_id,
 			description:req.body.description,
 			value: req.body.value,
+			created_at: new Date()
+
 		}
 		let id:any
 		try{
@@ -18,7 +20,8 @@ class IncidentsController{
 				title:incident.title,
 				description:incident.description,
 				value:incident.value,
-				ong_id:incident.ong_id
+				ong_id:incident.ong_id,
+				created_at: incident.created_at
 			})
 		}
 		catch(e){
@@ -28,14 +31,14 @@ class IncidentsController{
 	}
 
 	public async list(req:Request,res:Response){
-		let ongs:any
+		let incidents:any
 		try{
-			ongs = await connection('ongs').select('*')
+			incidents = await connection('incidents').select('*')
 		}
 		catch(e){
 			res.status(422).json({error:e.error})
 		}
-		return res.json(ongs)
+		return res.json(incidents)
 	}
 
 

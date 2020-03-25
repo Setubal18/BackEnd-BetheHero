@@ -12,7 +12,9 @@ class OngController{
 			email:req.body.email,
 			whatsapp: req.body.whatsapp,
 			city: req.body.city,
-			uf: req.body.uf
+			uf: req.body.uf,
+			created_at:new Date()
+
 		}
 
 		try{
@@ -22,7 +24,8 @@ class OngController{
 				email:ong.email,
 				whatsapp:ong.whatsapp,
 				city:ong.city,
-				uf:ong.uf
+				uf:ong.uf,
+				created_at:ong.created_at
 			})
 		}
 		catch(e){
