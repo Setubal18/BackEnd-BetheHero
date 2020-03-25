@@ -5,6 +5,8 @@
 /tmp
 /out-tsc
 /build
+src/database/db.sqlite
+
 # Only exists if Bazel was run
 /bazel-out
 
@@ -45,4 +47,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-src/database/db.sqlite
