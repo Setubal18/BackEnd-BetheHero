@@ -1,10 +1,9 @@
 import express from 'express'
+
+import OngsController from '../controller/OngsController'
 const routes = express.Router()
 
-routes.post('/users', (req:any, res:any) => {
-	const body = req.body
-	console.log(body)
-	return res.send(`Sucesso ! ${body}`)
-});
+routes.post('/ongs',
+OngsController.store);
 
 export default routes
