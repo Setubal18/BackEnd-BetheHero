@@ -3,7 +3,12 @@ import express from 'express'
 import OngsController from '../controllers/OngsController'
 import IncidentsController from '../controllers/incidentController'
 import PublicController from '../controllers/PublicController'
+import SessionController from '../controllers/SessionController'
 const routes = express.Router()
+
+
+routes.post('/login',
+SessionController.create)
 
 //ONGs
 routes.post('/ongs',
