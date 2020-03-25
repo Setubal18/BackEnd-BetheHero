@@ -45,23 +45,19 @@ class IncidentsController{
 		const { id } = req.params
 		const ong_id = req.headers.authorization
 		let incident: any
-
 		try{
 			incident = await connection('incidents')
 		.where('id',id)
 		.select('ong_id')
 		.first()
-		console.log('incident',incident)
 		if(incident.ong_id !== ong_id ){
 			return res.status(401).json({error:'Operanção não permitida'})
 		}
-			console.log('entrou no try com dois awaits');
 			await(connection('incidents').where('id',id).delete())
 	}
 		catch(e){
 			res.status(422).json({error:e.error})
 		}
-		console.log('deu certo');
 		return res.json({message:'sucesso na exclusão'})
 	}
 
